@@ -1,6 +1,6 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import '../routes/routes.dart';
+import 'package:get/get.dart';
+import 'package:servdesk/share/logger/logger_utils.dart';
 import '../routes/application.dart';
 import '../theme.dart';
 
@@ -11,21 +11,19 @@ class ServDesk extends StatefulWidget {
 }
 
 class ServDeskState extends State<ServDesk> {
-  ServDeskState() {
-    final router = FluroRouter();
-    Routes.configureRoutes(router);
-    Application.router = router;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final app = MaterialApp(
-      title: "Servdesk",
+    var getMaterialApp = GetMaterialApp(
+      title: "应用服务台",
       debugShowCheckedModeBanner: false,
+      enableLog: true,
+      logWriterCallback: Logger.write,
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
-      onGenerateRoute: Application.router.generator,
+      initialRoute: Application.INITIAL,
+      getPages: Application.routes,
     );
+    final app = getMaterialApp;
     return app;
   }
 }

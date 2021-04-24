@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
+// import 'package:fluro/fluro.dart';
 import 'package:servdesk/presentation/Headers/RequestsHeader.dart';
 import 'package:servdesk/presentation/Headers/HomeHeader.dart';
+import 'package:servdesk/share/logger/logger_utils.dart';
 
-var rootHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return RootComponent();
-});
+// var rootHandler = Handler(
+//     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+//   return RootComponent();
+// });
 
 class RootComponent extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class RootComponent extends StatefulWidget {
 class _RootComponentState extends State<RootComponent> {
   PageController pageController;
   int page = 0;
-  TransitionType transitionType = TransitionType.custom;
+  // TransitionType transitionType = TransitionType.custom;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +29,8 @@ class _RootComponentState extends State<RootComponent> {
           new PortalComponent(),
           new RequestsComponent(),
         ],
-        controller: pageController,
-        onPageChanged: onPageChanged,
+        // controller: pageController,
+        // onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
@@ -51,7 +52,13 @@ class _RootComponentState extends State<RootComponent> {
   BottomNavigationBar buildBottomNavigationBar() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      onTap: onTap,
+      onTap: (value) {
+        setState(() {
+          // _selectedIndex = value;
+          //
+          print("打印当前的$value");
+        });
+      },
       currentIndex: page,
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "门户"),
@@ -65,11 +72,11 @@ class _RootComponentState extends State<RootComponent> {
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    pageController = PageController(initialPage: this.page);
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   pageController = PageController(initialPage: this.page);
+  // }
 
   @override
   void dispose() {
@@ -78,12 +85,16 @@ class _RootComponentState extends State<RootComponent> {
   }
 
   void onTap(int index) {
-    pageController.jumpToPage(index);
+    // pageController.jumpToPage(index);
+
+    print(
+      "打印当前的页面$index",
+    );
   }
 
-  void onPageChanged(int page) {
-    setState(() {
-      this.page = page;
-    });
-  }
+  // void onPageChanged(int page) {
+  //   setState(() {
+  //     this.page = page;
+  //   });
+  // }
 }

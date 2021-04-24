@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
+// import 'package:fluro/fluro.dart';
 
 import 'components/portalsBody.dart';
 
-var portalHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return PortalComponent();
-});
+// var portalHandler = Handler(
+//     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+//   return PortalComponent();
+// });
 
 class PortalComponent extends StatefulWidget {
   @override

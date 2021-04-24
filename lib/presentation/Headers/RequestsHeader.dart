@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
+// import 'package:fluro/fluro.dart';
 import 'components/requestsBody.dart';
 
-var requestsHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return RequestsComponent();
-});
+// var requestsHandler = Handler(
+//     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+//   return RequestsComponent();
+// });
 
 
 
