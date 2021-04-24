@@ -347,3 +347,9 @@ playground.xcworkspace
 build/
 
 # End of https://www.gitignore.io/api/dart,swift,xcode,android,intellij,cocoapods,objective-c,androidstudio
+
+# vscode 
+
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool
