@@ -15,6 +15,7 @@ class GlobalStateController extends GetxController {
   //改变底部导航栏索引
   changeBottomBarIndex(int index) {
     state.bottomBarIndex.value = index;
+
     print(state.bottomBarIndex.value);
   }
 }
@@ -39,9 +40,12 @@ class HomeView extends StatelessWidget {
             currentIndex: mainState.bottomBarIndex.value,
             // 点击事件,获取当前点击的标签下标
             onTap: (int index) {
+              if (index == 2 || index == 3) {
+                index=0;
+              }
               globalStateController.changeBottomBarIndex(index);
             },
-            iconSize: 30.0,
+            // iconSize: 30.0,
             // fixedColor: Colors.red,
             type: BottomNavigationBarType.fixed,
             items: [
@@ -51,7 +55,7 @@ class HomeView extends StatelessWidget {
                   icon: Icon(Icons.notifications), label: "通知"),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
-                label: "设置",
+                label: "个人",
               ),
             ],
           )),
