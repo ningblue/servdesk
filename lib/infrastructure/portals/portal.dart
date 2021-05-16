@@ -72,8 +72,11 @@ Widget buildList(BuildContext context, int index) {
                   Theme.of(context).textTheme.subtitle1.color.withOpacity(0.0),
             ),
             image: DecorationImage(
-                image: NetworkImage(schoolLists[index]['logoText']),
-                fit: BoxFit.fill),
+                image: new ExactAssetImage('assets/icons/'+schoolLists[index]['icon']),
+
+                // image: NetworkImage(schoolLists[index]['logoText']),
+                fit: BoxFit.fill
+            ),
           ),
         ),
         Expanded(
