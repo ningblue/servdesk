@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:get/get.dart';
 import 'package:servdesk/share/logger/logger_utils.dart';
 import '../routes/application.dart';
@@ -27,3 +28,5 @@ class ServDeskState extends State<ServDesk> {
     return app;
   }
 }
+
+// final String BASEAPI = FlutterConfig.get('BASE_API');

@@ -353,3 +353,6 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 .dart_tool
+.idea/runConfigurations.xml
+.flutter-plugins-dependencies
+.flutter-plugins

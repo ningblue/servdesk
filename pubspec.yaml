@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^ 2.0.0
   get: ^4.1.4
+  flutter_config: ^2.0.0
+  dio: ^4.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:servdesk/domain/portals/portal.dart';
+
+import 'package:servdesk/presentation/config/options.dart';
 import 'package:servdesk/presentation/constant.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // var  portalApis  = PORTALSAPIS();
+    _getdata();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -27,18 +32,13 @@ class Body extends StatelessWidget {
         ),
       ),
     );
-
-    // return Column(
-    //   children: [
-    //     Expanded(
-    //       child: ListView.builder(
-    //         itemCount: chatsData.length,
-    //         itemBuilder: (BuildContext context,int)
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
+}
+
+void _getdata() async {
+  // Response response;
+  response = await dio.get("/ticket/modules?page=1&limit=500&search_value=");
+  print(response.data.toString());
 }
 
 Widget buildList(BuildContext context, int index) {
@@ -72,11 +72,11 @@ Widget buildList(BuildContext context, int index) {
                   Theme.of(context).textTheme.subtitle1.color.withOpacity(0.0),
             ),
             image: DecorationImage(
-                image: new ExactAssetImage('assets/icons/'+schoolLists[index]['icon']),
+                image: new ExactAssetImage(
+                    'assets/icons/' + schoolLists[index]['icon']),
 
                 // image: NetworkImage(schoolLists[index]['logoText']),
-                fit: BoxFit.fill
-            ),
+                fit: BoxFit.fill),
           ),
         ),
         Expanded(
