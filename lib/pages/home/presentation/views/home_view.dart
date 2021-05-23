@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:servdesk/pages/notifications/presentation/views/notifications_view.dart';
 import 'package:servdesk/pages/portals/presentation/views/portal_view.dart';
 import 'package:servdesk/pages/requests/presentation/views/requests_view.dart';
 
@@ -20,14 +21,21 @@ class GlobalStateController extends GetxController {
   }
 }
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   //全局状态控制器
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final globalStateController = Get.put(GlobalStateController());
+
   var mainState = Get.find<GlobalStateController>().state;
 
   List bodyPageList = [
     PortalView(),
     RequestsView(),
+    NotificationsView(),
   ];
 
   @override
@@ -40,8 +48,8 @@ class HomeView extends StatelessWidget {
             currentIndex: mainState.bottomBarIndex.value,
             // 点击事件,获取当前点击的标签下标
             onTap: (int index) {
-              if (index == 2 || index == 3) {
-                index=0;
+              if (index == 3) {
+                index = 0;
               }
               globalStateController.changeBottomBarIndex(index);
             },

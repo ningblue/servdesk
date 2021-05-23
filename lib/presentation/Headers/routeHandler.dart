@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:fluro/fluro.dart';
 import 'package:servdesk/presentation/Headers/RequestsHeader.dart';
 import 'package:servdesk/presentation/Headers/HomeHeader.dart';
 import 'package:servdesk/share/logger/logger_utils.dart';
@@ -7,7 +6,7 @@ import 'package:servdesk/share/logger/logger_utils.dart';
 // var rootHandler = Handler(
 //     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
 //   return RootComponent();
-// });
+// });d
 
 class RootComponent extends StatefulWidget {
   @override
@@ -15,7 +14,7 @@ class RootComponent extends StatefulWidget {
 }
 
 class _RootComponentState extends State<RootComponent> {
-  PageController pageController;
+  late PageController pageController;
   int page = 0;
   // TransitionType transitionType = TransitionType.custom;
 

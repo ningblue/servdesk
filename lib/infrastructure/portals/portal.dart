@@ -3,12 +3,13 @@ import 'package:servdesk/domain/portals/portal.dart';
 
 import 'package:servdesk/presentation/config/options.dart';
 import 'package:servdesk/presentation/constant.dart';
+import 'package:servdesk/share/logger/logger_utils.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // var  portalApis  = PORTALSAPIS();
-    _getdata();
+    // _getdata();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -35,20 +36,20 @@ class Body extends StatelessWidget {
   }
 }
 
-void _getdata() async {
-  // Response response;
-  response = await dio.get("/ticket/modules?page=1&limit=500&search_value=");
-  print(response.data.toString());
-}
+// void _getdata() async {
+//   response = await dio.get("/ticket/modules?page=1&limit=1&search_value=");
+//   Logger.write("response.data:$response.data.toString()");
+//   print(response.data.toString());
+// }
 
 Widget buildList(BuildContext context, int index) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(25),
-      color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.0),
+      color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.0),
       // border: 1,
       border: Border.all(
-        color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.2),
+        color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.2),
         width: 1,
       ),
     ),
@@ -69,7 +70,7 @@ Widget buildList(BuildContext context, int index) {
             border: Border.all(
               width: 3,
               color:
-                  Theme.of(context).textTheme.subtitle1.color.withOpacity(0.0),
+                  Theme.of(context).textTheme.subtitle1!.color!.withOpacity(0.0),
             ),
             image: DecorationImage(
                 image: new ExactAssetImage(
@@ -88,8 +89,8 @@ Widget buildList(BuildContext context, int index) {
                 style: TextStyle(
                     color: Theme.of(context)
                         .textTheme
-                        .bodyText1
-                        .color
+                        .bodyText1!
+                        .color!
                         .withOpacity(0.8),
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
