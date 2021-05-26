@@ -1,7 +1,6 @@
-
 class Response {
   int? code;
-  dynamic? data;
+  dynamic data;
 
   Response({this.code, this.data});
 
