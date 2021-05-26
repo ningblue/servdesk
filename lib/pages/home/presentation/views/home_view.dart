@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:servdesk/pages/notifications/presentation/views/notifications_view.dart';
 import 'package:servdesk/pages/portals/presentation/views/portal_view.dart';
+import 'package:servdesk/pages/profiles/presentation/views/profiles_view.dart';
 import 'package:servdesk/pages/requests/presentation/views/requests_view.dart';
 
 class MainState {
@@ -36,21 +37,24 @@ class _HomeViewState extends State<HomeView> {
     PortalView(),
     RequestsView(),
     NotificationsView(),
+    ProfilesView(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      // appBar: buildAppBar(),
       body: Obx(() => bodyPageList[mainState.bottomBarIndex.value]),
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             // 当前菜单下标
             currentIndex: mainState.bottomBarIndex.value,
+
             // 点击事件,获取当前点击的标签下标
             onTap: (int index) {
-              if (index == 3) {
-                index = 0;
-              }
+              print(index);
+              // if (index == 3) {
+              //   index = 0;
+              // }
               globalStateController.changeBottomBarIndex(index);
             },
             // iconSize: 30.0,

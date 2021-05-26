@@ -1,5 +1,6 @@
 import 'package:servdesk/pages/home/presentation/views/home_view.dart';
 import 'package:servdesk/pages/notifications/presentation/views/notifications_view.dart';
+import 'package:servdesk/pages/profiles/presentation/views/profiles_view.dart';
 import 'package:servdesk/pages/requests/presentation/views/requests_view.dart';
 import 'package:servdesk/presentation/routes/routes.dart';
 import 'package:get/get.dart';
@@ -21,6 +22,11 @@ class Application {
     GetPage(
       name: Routes.Notifications,
       page: () => NotificationsView(),
+      // binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.MyInfo,
+      page: () => ProfilesView(),
       // binding: HomeBinding(),
     ),
   ];
