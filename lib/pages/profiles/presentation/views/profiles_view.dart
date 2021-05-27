@@ -16,6 +16,7 @@ class _ProfilesViewViewState extends State<ProfilesView> {
     return Scaffold(
       // backgroundColor: Color.fromRGBO(14, 14, 31, 1),
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(

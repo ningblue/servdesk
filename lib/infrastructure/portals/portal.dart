@@ -63,9 +63,10 @@ Widget buildList(BuildContext context, int index) {
         Container(
           width: 50,
           height: 50,
-          margin: EdgeInsets.only(right: 15),
+          // margin: EdgeInsets.only(right: 15),
+          margin: EdgeInsets.fromLTRB(0,13,15,0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
+            // borderRadius: BorderRadius.circular(50),
             // border: Border.all(width: 3, color: kSecondaryColor),
             border: Border.all(
               width: 3,
@@ -74,7 +75,7 @@ Widget buildList(BuildContext context, int index) {
             ),
             image: DecorationImage(
                 image: new ExactAssetImage(
-                    'assets/icons/' + schoolLists[index]['icon']),
+                    'assets/portals_icons/' + schoolLists[index]['icon']),
 
                 // image: NetworkImage(schoolLists[index]['logoText']),
                 fit: BoxFit.fill),
@@ -87,11 +88,7 @@ Widget buildList(BuildContext context, int index) {
               Text(
                 schoolLists[index]['name'],
                 style: TextStyle(
-                    color: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .color!
-                        .withOpacity(0.8),
+                    color: kPrimaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
@@ -102,7 +99,7 @@ Widget buildList(BuildContext context, int index) {
                 children: <Widget>[
                   Icon(
                     Icons.location_on,
-                    color: kSecondaryColor,
+                    color: kTextColor,
                     size: 20,
                   ),
                   SizedBox(
@@ -110,7 +107,7 @@ Widget buildList(BuildContext context, int index) {
                   ),
                   Text(schoolLists[index]['location'],
                       style: TextStyle(
-                          color: kSecondaryColor,
+                          color: kTextColor,
                           fontSize: 13,
                           letterSpacing: .3)),
                 ],
@@ -122,7 +119,7 @@ Widget buildList(BuildContext context, int index) {
                 children: <Widget>[
                   Icon(
                     Icons.school,
-                    color: kSecondaryColor,
+                    color: kTextColor,
                     size: 20,
                   ),
                   SizedBox(
@@ -130,7 +127,7 @@ Widget buildList(BuildContext context, int index) {
                   ),
                   Text(schoolLists[index]['type'],
                       style: TextStyle(
-                          color: kSecondaryColor,
+                          color: kTextColor,
                           fontSize: 13,
                           letterSpacing: .3)),
                   // fontSize: 13,
