@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:servdesk/domain/portals/portal.dart';
+import 'package:servdesk/presentation/Headers/components/portalsBody.dart';
 
 // import 'package:servdesk/presentation/config/options.dart';
 import 'package:servdesk/presentation/constant.dart';
@@ -43,101 +44,112 @@ class Body extends StatelessWidget {
 // }
 
 Widget buildList(BuildContext context, int index) {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(25),
-      color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.0),
-      // border: 1,
-      border: Border.all(
-        color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.2),
-        width: 1,
+  return GestureDetector(
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.0),
+        // border: 1,
+        border: Border.all(
+          color: Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
+      width: double.infinity,
+      height: 110,
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            width: 50,
+            height: 50,
+            // margin: EdgeInsets.only(right: 15),
+            margin: EdgeInsets.fromLTRB(0, 13, 15, 0),
+            decoration: BoxDecoration(
+              // borderRadius: BorderRadius.circular(50),
+              // border: Border.all(width: 3, color: kSecondaryColor),
+              border: Border.all(
+                width: 3,
+                color: Theme.of(context)
+                    .textTheme
+                    .subtitle1!
+                    .color!
+                    .withOpacity(0.0),
+              ),
+              image: DecorationImage(
+                  image: new ExactAssetImage(
+                      'assets/portals_icons/' + schoolLists[index]['icon']),
+
+                  // image: NetworkImage(schoolLists[index]['logoText']),
+                  fit: BoxFit.fill),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  schoolLists[index]['name'],
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.location_on,
+                      color: kTextColor,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(schoolLists[index]['location'],
+                        style: TextStyle(
+                            color: kTextColor,
+                            fontSize: 13,
+                            letterSpacing: .3)),
+                  ],
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.school,
+                      color: kTextColor,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(schoolLists[index]['type'],
+                        style: TextStyle(
+                            color: kTextColor,
+                            fontSize: 13,
+                            letterSpacing: .3)),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     ),
-    width: double.infinity,
-    height: 110,
-    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          width: 50,
-          height: 50,
-          // margin: EdgeInsets.only(right: 15),
-          margin: EdgeInsets.fromLTRB(0,13,15,0),
-          decoration: BoxDecoration(
-            // borderRadius: BorderRadius.circular(50),
-            // border: Border.all(width: 3, color: kSecondaryColor),
-            border: Border.all(
-              width: 3,
-              color:
-                  Theme.of(context).textTheme.subtitle1!.color!.withOpacity(0.0),
-            ),
-            image: DecorationImage(
-                image: new ExactAssetImage(
-                    'assets/portals_icons/' + schoolLists[index]['icon']),
-
-                // image: NetworkImage(schoolLists[index]['logoText']),
-                fit: BoxFit.fill),
-          ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                schoolLists[index]['name'],
-                style: TextStyle(
-                    color: kPrimaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
-              ),
-              SizedBox(
-                height: 6,
-              ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.location_on,
-                    color: kTextColor,
-                    size: 20,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(schoolLists[index]['location'],
-                      style: TextStyle(
-                          color: kTextColor,
-                          fontSize: 13,
-                          letterSpacing: .3)),
-                ],
-              ),
-              SizedBox(
-                height: 6,
-              ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.school,
-                    color: kTextColor,
-                    size: 20,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(schoolLists[index]['type'],
-                      style: TextStyle(
-                          color: kTextColor,
-                          fontSize: 13,
-                          letterSpacing: .3)),
-                  // fontSize: 13,
-                  // letterSpacing: .3)),
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
-    ),
+    onTap: () {
+      print("点击了数据");
+      print(schoolLists[index]["name"]);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => getFormPage(context, index)),
+      );
+    },
   );
 }

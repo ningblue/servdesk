@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:servdesk/domain/portals/portal.dart';
 import 'package:servdesk/infrastructure/portals/portal.dart';
 
 class PortalBody extends StatelessWidget {
@@ -21,12 +22,11 @@ class PortalBody extends StatelessWidget {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+Widget getFormPage(BuildContext context, int index )  {
+
+  return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
+        title: Text(schoolLists[index]["name"]),
       ),
       body: Center(
         child: ElevatedButton(
@@ -37,5 +37,24 @@ class SecondRoute extends StatelessWidget {
         ),
       ),
     );
-  }
+
+
 }
+// class SecondRoute extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Second Route"),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed: () {
+//             Navigator.pop(context);
+//           },
+//           child: Text('Go back!'),
+//         ),
+//       ),
+//     );
+//   }
+// }

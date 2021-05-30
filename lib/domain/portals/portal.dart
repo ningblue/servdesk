@@ -9,7 +9,7 @@ final List<Map> schoolLists = [
   },
   {
     "name": "权限服务",
-    "location": "提供账号创建、授权、解锁等服务支持",
+    "location": "提供账号相关务支持",
     "type": "Higher Secondary School",
     "icon": "C-03.png",
     "logoText":
