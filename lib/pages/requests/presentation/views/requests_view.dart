@@ -16,11 +16,11 @@ class _RequestsViewState extends State<RequestsView> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
-        child: Column(children: [
-
-SearchField(),
-
-        ],),
+        child: Column(
+          children: [
+            SearchField(),
+          ],
+        ),
       ),
     );
   }
